@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://host_init_scene"]
+
+[ext_resource type="Script" uid="uid://host_init_script" path="res://game/ui/host_init.gd" id="1_host"]
+
+[node name="HostInit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = -200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "创建游戏（主机）"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PortLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "端口: 8766"
+horizontal_alignment = 1
+
+[node name="PlayerCountContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerCountLabel" type="Label" parent="Panel/VBoxContainer/PlayerCountContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "游戏人数："
+
+[node name="PlayerCountButton" type="OptionButton" parent="Panel/VBoxContainer/PlayerCountContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 4
+popup/item_0/text = "5人"
+popup/item_1/text = "6人"
+popup/item_1/id = 1
+popup/item_2/text = "7人"
+popup/item_2/id = 2
+popup/item_3/text = "8人"
+popup/item_3/id = 3
+
+[node name="PlayerNameContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="Panel/VBoxContainer/PlayerNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "玩家名："
+
+[node name="PlayerNameInput" type="LineEdit" parent="Panel/VBoxContainer/PlayerNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入玩家名"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "状态：等待输入..."
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "启动服务"
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "返回"
+
+[node name="Spacer3" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="item_selected" from="Panel/VBoxContainer/PlayerCountContainer/PlayerCountButton" to="." method="_on_player_count_selected"]
+[connection signal="text_changed" from="Panel/VBoxContainer/PlayerNameContainer/PlayerNameInput" to="." method="_on_player_name_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_back_pressed"]

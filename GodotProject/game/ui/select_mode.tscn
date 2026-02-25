@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cakcgkg80h8uh"]
+
+[node name="SelectMode" type="Control" unique_id=1580311658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=350593779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = -200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=344051303]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=514277203]
+layout_mode = 2
+text = "阿瓦隆"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer" unique_id=236271239]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HostButton" type="Button" parent="Panel/VBoxContainer" unique_id=1859283573]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "创建游戏"
+
+[node name="ClientButton" type="Button" parent="Panel/VBoxContainer" unique_id=1202137946]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "加入游戏"
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer" unique_id=993536649]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "返回"
+
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer" unique_id=1798903183]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Panel/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ClientButton" to="." method="_on_client_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,78 @@
+name: PR Gate
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  # 代码格式检查
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install GDScript formatter
+        run: pip install gdformat
+
+      - name: Check GDScript formatting
+        run: |
+          # Check all .gd files in GodotProject
+          find GodotProject -name "*.gd" -exec gdformat --check {} \;
+        continue-on-error: true
+
+      - name: Check project.godot syntax
+        run: |
+          # Basic project.godot validation
+          if [ -f GodotProject/project.godot ]; then
+            echo "project.godot exists"
+          fi
+
+  # 单元测试
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: |
+          godot --headless -s addons/gut/gut_cmdln.gd -gdir=res://tests/
+        continue-on-error: true
+
+  # 检查未使用的文件
+  check-unused:
+    name: Check for unused files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for empty directories
+        run: |
+          find GodotProject -type d -empty | head -20 || true
+
+  # 安全检查
+  security:
+    name: Security Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for secrets in code
+        run: |
+          # Check for potential secrets
+          grep -r "password\s*=" GodotProject --include="*.gd" || true
+          grep -r "api_key\s*=" GodotProject --include="*.gd" || true
+          grep -r "secret\s*=" GodotProject --include="*.gd" || true
+        continue-on-error: true

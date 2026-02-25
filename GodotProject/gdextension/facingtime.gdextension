@@ -1,0 +1,10 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.4
+reloadable = true
+
+[libraries]
+"macos.debug.arm64" = "res://gdextension/macOS/debug/libfacingtime_core.dylib"
+"macos.release.arm64" = "res://gdextension/macOS/release/libfacingtime_core.dylib"
+"ios.debug.arm64" = "res://gdextension/iOS/debug/libfacingtime_core.dylib"
+"ios.release.arm64" = "res://gdextension/iOS/release/libfacingtime_core.dylib"

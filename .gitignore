@@ -17,6 +17,10 @@ DerivedData/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.so
+*.dylib
+*.wasm
+Resources/web/
 
 # CocoaPods
 Pods/
@@ -61,4 +65,24 @@ Cargo.lock
 **/*.rs.bk
 
 # claude
-.claude/
+*.local.json
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+.next/
+out/
+
+godot-xcode/
+GodotProject/web/
+GodotProject/addons/
+GodotProject/resources/
+
+# Worktrees
+.worktrees/

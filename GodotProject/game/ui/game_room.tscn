@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://yb327hyyro4c"]
+
+[node name="GameRoom" type="Control" unique_id=737608767]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1299396274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=2127155164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=1449729563]
+layout_mode = 2
+text = "游戏房间"
+horizontal_alignment = 1
+
+[node name="SeatsScroll" type="ScrollContainer" parent="Panel/VBoxContainer" unique_id=292253198]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SeatsContainer" type="HBoxContainer" parent="Panel/VBoxContainer/SeatsScroll" unique_id=675413956]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="Panel/VBoxContainer" unique_id=146867866]
+layout_mode = 2
+text = "请选择一个座位"
+horizontal_alignment = 1
+
+[node name="ReadyButton" type="Button" parent="Panel/VBoxContainer" unique_id=1754964181]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "准备"
+
+[node name="LeaveButton" type="Button" parent="Panel/VBoxContainer" unique_id=7050386]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "离开房间"

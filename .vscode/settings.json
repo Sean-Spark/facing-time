@@ -1,0 +1,6 @@
+{
+  "rust-analyzer.linkedProjects": [
+    "RustCore/Cargo.toml"
+  ],
+  "godotTools.editorPath.godot4": "/Applications/Godot.app"
+}

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b38j4uu4vyvrh"]
+
+[node name="ClientInit" type="Control" unique_id=974766915]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2124443150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = -200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=327685939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=1567318268]
+layout_mode = 2
+text = "加入游戏（从机）"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer" unique_id=1527057409]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ServerUrlLabel" type="Label" parent="Panel/VBoxContainer" unique_id=999999999]
+layout_mode = 2
+text = "服务器: wss://qo-oq.local:8766"
+horizontal_alignment = 1
+
+[node name="PlayerNameContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1288029877]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="Panel/VBoxContainer/PlayerNameContainer" unique_id=350645273]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "玩家名："
+
+[node name="PlayerNameInput" type="LineEdit" parent="Panel/VBoxContainer/PlayerNameContainer" unique_id=1359032749]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入玩家名"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1856179495]
+layout_mode = 2
+text = "状态：等待输入..."
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer" unique_id=330195268]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConnectButton" type="Button" parent="Panel/VBoxContainer" unique_id=978836715]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "连接服务"
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer" unique_id=1875155989]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "返回"
+
+[node name="Spacer3" type="Control" parent="Panel/VBoxContainer" unique_id=2053952308]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="text_changed" from="Panel/VBoxContainer/PlayerNameContainer/PlayerNameInput" to="." method="_on_player_name_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ConnectButton" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_back_pressed"]

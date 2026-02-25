@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Facing time",
+            "type": "lldb",
+            "request": "launch",
+            "program": "/Applications/Godot.app/Contents/MacOS/Godot",
+            "args": [
+                "--path ${workspaceFolder}/GodotProject"
+            ],
+            "cwd": "${workspaceFolder}/GodotProject"
+        },
+        {
+            "name": "Attach by PID",
+            "type": "lldb",
+            "request": "attach",
+            "pid": "${command:pickProcess}",
+            "stopOnEntry": false
+        }
+    ]
+}

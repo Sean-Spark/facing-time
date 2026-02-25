@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b00ncdvfswk1d"]
+
+[ext_resource type="Script" uid="uid://deuidsrbmw55e" path="res://game/ui/avalon.gd" id="1_avalon"]
+[ext_resource type="PackedScene" uid="uid://cakcgkg80h8uh" path="res://game/ui/select_mode.tscn" id="1_fbt5q"]
+[ext_resource type="PackedScene" path="res://game/ui/host_init.tscn" id="2_2pqoo"]
+[ext_resource type="PackedScene" uid="uid://b38j4uu4vyvrh" path="res://game/ui/client_init.tscn" id="3_nn5kw"]
+[ext_resource type="Script" uid="uid://bd48jpah866uk" path="res://game/ui/select_mode.gd" id="3_pju14"]
+[ext_resource type="PackedScene" uid="uid://yb327hyyro4c" path="res://game/ui/game_room.tscn" id="4_700if"]
+[ext_resource type="Script" uid="uid://cre1xpeq514xy" path="res://game/ui/host_init.gd" id="5_1l0m6"]
+[ext_resource type="Script" uid="uid://bpcurcsupjjwg" path="res://game/ui/client_init.gd" id="7_k04nl"]
+[ext_resource type="Script" uid="uid://dxrspp5l5smgb" path="res://game/ui/game_room.gd" id="9_22g1u"]
+[ext_resource type="Script" uid="uid://5yp8l45c4htv" path="res://game/network/WebSocketNetwork.gd" id="10_vme0j"]
+
+[node name="Avalon" type="Control" unique_id=559736380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avalon")
+
+[node name="SelectMode" parent="." unique_id=411279687 instance=ExtResource("1_fbt5q")]
+visible = false
+layout_mode = 1
+script = ExtResource("3_pju14")
+
+[node name="HostInit" parent="." unique_id=571277245 instance=ExtResource("2_2pqoo")]
+visible = false
+layout_mode = 1
+script = ExtResource("5_1l0m6")
+
+[node name="ClientInit" parent="." unique_id=1961935987 instance=ExtResource("3_nn5kw")]
+visible = false
+layout_mode = 1
+script = ExtResource("7_k04nl")
+
+[node name="GameRoom" parent="." unique_id=82095209 instance=ExtResource("4_700if")]
+layout_mode = 1
+script = ExtResource("9_22g1u")
+
+[node name="NetworkLayer" type="Node" parent="." unique_id=1140934620]
+
+[node name="WebSocketNetwork" type="Node" parent="NetworkLayer" unique_id=1676282801]
+script = ExtResource("10_vme0j")
+metadata/_custom_type_script = "uid://5yp8l45c4htv"
+
+[node name="RoomLayer" type="Node" parent="." unique_id=412869508]
