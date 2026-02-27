@@ -8,3 +8,5 @@ reloadable = true
 "macos.release.arm64" = "res://gdextension/macOS/release/libfacingtime_core.dylib"
 "ios.debug.arm64" = "res://gdextension/iOS/debug/libfacingtime_core.dylib"
 "ios.release.arm64" = "res://gdextension/iOS/release/libfacingtime_core.dylib"
+"linux.debug.x86_64" = "res://gdextension/Linux/debug/libfacingtime_core.so"
+"linux.release.x86_64" = "res://gdextension/Linux/release/libfacingtime_core.so"

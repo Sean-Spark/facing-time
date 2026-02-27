@@ -1,4 +1,0 @@
-[submodule "GodotProject/addons/gut"]
-	path = GodotProject/addons/gut
-	url = https://github.com/bitwes/Gut.git
-	branch = v9.6.0

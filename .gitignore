@@ -81,7 +81,9 @@ out/
 
 godot-xcode/
 GodotProject/web/
+GodotProject/addons/
 GodotProject/resources/
+GodotProject/*.uid
 
 # Worktrees
 .worktrees/
